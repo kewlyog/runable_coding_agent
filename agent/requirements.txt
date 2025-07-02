@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+jupyterlab
+notebook
+python-multipart
+openai
+python-dotenv 

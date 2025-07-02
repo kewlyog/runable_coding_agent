@@ -1,0 +1,18 @@
+# Kubernetes Job Spec for Agent Container
+# Use this as a template for scaling agent containers in a cluster.
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: agent-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: agent
+        image: <your-agent-image>
+        ports:
+        - containerPort: 5000
+        - containerPort: 6080
+        - containerPort: 8888
+        - containerPort: 5901
+      restartPolicy: Never 

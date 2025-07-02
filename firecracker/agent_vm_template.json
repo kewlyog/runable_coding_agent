@@ -1,0 +1,3 @@
+{
+  "_comment": "Template for Firecracker VM configuration for agent jobs. Fill in kernel, rootfs, networking, etc. as needed."
+} 
