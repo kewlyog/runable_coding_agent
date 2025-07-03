@@ -150,7 +150,7 @@ All endpoints require the `X-API-Key` header with your API key.
 ---
 
 ## License
-MIT (or your chosen license)
+MIT (or any chosen license)
 
 ## Directory Structure & Codebase Layout
 
@@ -181,7 +181,7 @@ runable_coding_agent/
 ├── firecracker/            # Firecracker VM config/scripts
 │   └── agent_vm_template.json
 │
-├── k8s/                    # (Bonus) Kubernetes/Nomad job specs
+├── k8s/                    # Kubernetes/Nomad job specs
 │   └── agent-job.yaml
 │
 └── README.md               # Project documentation
