@@ -100,13 +100,12 @@ All endpoints require the `X-API-Key` header with your API key.
 
 ---
 
-## How to test from UI
+## How to run the app and test from UI
 
    To test your app from the UI, you need to have three main services running:
 
    1. Agent API (in Docker)
    This is the core agent that executes code, shell commands, manages context, etc.
-   Run this in Docker (so /home/agent and all dependencies are available):
    ```sh
    docker build -t runable-agent .
    docker run --rm -it -p 5001:5001 -v $(pwd)/.env:/home/agent/.env runable-agent
@@ -129,6 +128,11 @@ All endpoints require the `X-API-Key` header with your API key.
    npm install
    npm run dev
    ```
+
+   IMP: 
+   - To run context commands, you will need Open AI API Key. Please put it in .env file in root folder.
+   - To run shell commands, you will need AGENT_API_KEY. For testing purpose, I have hardcoded it in backend and frontend. But it can be changed later.
+   
 
 ## Kubernetes
 
