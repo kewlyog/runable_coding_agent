@@ -35,21 +35,6 @@ A scalable, secure coding agent with sandboxing, orchestration, and advanced con
      OPENAI_API_KEY=sk-... (if using LLM context pruning)
      ```
 
-3. **Build and run the agent container:**
-   ```sh
-   docker build -t coding-agent -f agent/Dockerfile .
-   docker run -it -p 5001:5001 -p 6080:6080 -p 5901:5901 -p 8888:8888 --env-file agent/.env coding-agent
-   ```
-   - Access noVNC at: [http://localhost:6080](http://localhost:6080)
-   - Access Jupyter at: [http://localhost:8888](http://localhost:8888)
-
-4. **(Optional) Build and run orchestration server:**
-   ```sh
-   docker build -t orchestration -f orchestration/Dockerfile .
-   docker run -it -p 5100:5100 --env-file orchestration/.env orchestration
-   ```
-   - Or run locally (see below)
-
 ---
 
 ## How to run the app and test from UI
