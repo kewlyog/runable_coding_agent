@@ -29,7 +29,7 @@ A scalable, secure coding agent with sandboxing, orchestration, and advanced con
    ```
 
 2. **Set up environment:**
-   - Create a `.env` file in `agent/` and `orchestration/` with:
+   - Create a `.env` file in root folder with:
      ```
      AGENT_API_KEY=your-strong-api-key
      OPENAI_API_KEY=sk-... (if using LLM context pruning)
@@ -99,6 +99,36 @@ All endpoints require the `X-API-Key` header with your API key.
    - Ensure CORS is enabled in your orchestration FastAPI app for browser access.
 
 ---
+
+## How to test from UI
+
+   To test your app from the UI, you need to have three main services running:
+
+   1. Agent API (in Docker)
+   This is the core agent that executes code, shell commands, manages context, etc.
+   Run this in Docker (so /home/agent and all dependencies are available):
+   ```sh
+   docker build -t runable-agent .
+   docker run --rm -it -p 5001:5001 -v $(pwd)/.env:/home/agent/.env runable-agent
+   ```
+   This exposes the agent API at http://localhost:5001
+
+   2. Orchestration API (on your Mac)
+   This is the FastAPI server that the UI talks to. It schedules jobs, proxies requests to the agent, and manages job state.
+   Run this from your project root (not inside Docker):
+   ```sh
+   uvicorn orchestration.api:app --host 0.0.0.0 --port 5100
+   ```
+   This exposes the orchestration API at http://localhost:5100
+
+   3. Frontend UI (React app)
+   This is the user interface for interacting with the system.
+   Run this from the agent-ui directory:
+   ```sh
+   cd agent-ui
+   npm install
+   npm run dev
+   ```
 
 ## Kubernetes
 
