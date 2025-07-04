@@ -30,9 +30,7 @@ services:
       context: ./agent-ui
     image: runable-ui
     ports:
-      - "5173:5173"
-    environment:
-      - VITE_API_URL=http://localhost:5100
+      - "5173:80"   # Maps host:container (React UI on 5173, nginx serves on 80)
     depends_on:
       - orchestration
     restart: unless-stopped
