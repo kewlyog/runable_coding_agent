@@ -5,7 +5,7 @@ import {
 import axios from "axios";
 
 // const API_URL = "http://localhost:5100";
-const API_URL = "http://34.47.234.81:5001";
+const API_URL = "http://34.47.234.81:5100";
 const AGENT_API_KEY = "5acd6f98c443e42bb1631cb6bcd26dc8a2202f0d3a24e31c5090efa69953e849";
 
 function App() {
