@@ -13,7 +13,7 @@ app = FastAPI(title="Agent Orchestration Server")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Or specify your frontend's URL for more security
+    allow_origins=["http://34.47.234.81:5173"],  # Or specify your frontend's URL for more security
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
