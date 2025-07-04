@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  agent:
+    build: .
+    image: runable-agent
+    ports:
+      - "5001:5001"
+      - "6080:6080"   # noVNC, if you want GUI access
+    volumes:
+      - ./agent_data:/home/agent/context
+      - ./.env:/home/agent/.env
+    environment:
+      - AGENT_API_KEY=${AGENT_API_KEY}
+    restart: unless-stopped
+
+  orchestration:
+    build:
+      context: ./orchestration
+    image: runable-orchestration
+    ports:
+      - "5100:5100"
+    environment:
+      - AGENT_API_KEY=${AGENT_API_KEY}
+    depends_on:
+      - agent
+    restart: unless-stopped
+
+  ui:
+    build:
+      context: ./agent-ui
+    image: runable-ui
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:5100
+    depends_on:
+      - orchestration
+    restart: unless-stopped
