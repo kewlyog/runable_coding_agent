@@ -30,7 +30,7 @@ def schedule_job(req: ScheduleRequest):
     job_id = str(uuid4())
     vm_handle = launch_agent_vm(req.task)
     # Simulate agent API URL (in real use, this would be dynamic)
-    agent_api_url = "http://localhost:5001"
+    agent_api_url = "http://agent:5001"
     jobs[job_id] = {"task": req.task, "status": "running", "result": None, "vm_handle": vm_handle, "agent_api_url": agent_api_url}
     return {"job_id": job_id}
 
