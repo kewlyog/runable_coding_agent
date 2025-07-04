@@ -15,7 +15,8 @@ services:
 
   orchestration:
     build:
-      context: ./orchestration
+      context: .
+      dockerfile: orchestration/Dockerfile
     image: runable-orchestration
     ports:
       - "5100:5100"
