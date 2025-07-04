@@ -6,7 +6,7 @@ from pydantic import BaseModel
 from uuid import uuid4
 from typing import Dict
 import requests
-from orchestration.vm_launcher import launch_agent_vm
+from vm_launcher import launch_agent_vm
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="Agent Orchestration Server")
